@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>คิวเครื่องดื่ม</title>
+
+<style>
+
+body{
+background:#111;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+.container{
+display:flex;
+justify-content:center;
+gap:100px;
+margin-top:60px;
+}
+
+.box{
+background:#222;
+padding:40px;
+border-radius:20px;
+width:300px;
+}
+
+.number{
+font-size:40px;
+margin:15px;
+color:#f1c40f;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>สถานะเครื่องดื่ม</h1>
+
+<div class="container">
+
+<div class="box">
+
+<h2>กำลังทำ</h2>
+
+{% for order in waiting %}
+
+<div class="number">
+#{{order.id}}
+</div>
+
+{% endfor %}
+
+</div>
+
+
+<div class="box">
+
+<h2>รอรับ</h2>
+
+{% for order in ready %}
+
+<div class="number">
+#{{order.id}}
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+</html>

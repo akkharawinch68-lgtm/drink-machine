@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>รายละเอียดออเดอร์</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f1ea;
+margin:0;
+}
+
+nav{
+background:#6f4e37;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 20px;
+font-weight:bold;
+}
+
+.container{
+width:80%;
+margin:40px auto;
+}
+
+.item{
+background:white;
+padding:15px;
+border-radius:10px;
+margin-bottom:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.05);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<a href="/admin">กลับหน้าแอดมิน</a>
+</nav>
+
+<div class="container">
+
+<h1>รายละเอียดออเดอร์ #{{ order_id }}</h1>
+
+{% for item in items %}
+
+<div class="item">
+
+<b>โต๊ะ:</b> {{ item.table_no }} <br>
+<b>เมนู:</b> {{ item.drink }} <br>
+<b>ความหวาน:</b> {{ item.sweetness }} <br>
+<b>จำนวน:</b> {{ item.quantity }} แก้ว <br>
+<b>ราคา:</b> {{ item.price }} บาท
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

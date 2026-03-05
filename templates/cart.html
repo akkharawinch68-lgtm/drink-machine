@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ตะกร้าของคุณ</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f5f1ea;
+}
+
+nav{
+background:#6f4e37;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 20px;
+font-weight:bold;
+}
+
+.container{
+width:80%;
+margin:40px auto;
+}
+
+.cart-item{
+background:white;
+padding:15px;
+border-radius:10px;
+margin-bottom:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 10px rgba(0,0,0,0.05);
+}
+
+.total{
+font-size:22px;
+font-weight:bold;
+color:#6f4e37;
+margin-top:20px;
+}
+
+button{
+padding:8px 16px;
+border:none;
+border-radius:20px;
+background:#6f4e37;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#54392b;
+}
+
+.cancel{
+background:#c0392b;
+}
+
+.cancel:hover{
+background:#a93226;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<a href="/menu">เมนู</a>
+<a href="/cart">ตะกร้า</a>
+</nav>
+
+<div class="container">
+
+<h1>ตะกร้าของคุณ</h1>
+
+{% if items %}
+
+{% for item in items %}
+
+<div class="cart-item">
+
+<div>
+
+<b>{{ item.drink }}</b>
+({{ item.sweetness }})
+x {{ item.quantity }}
+
+</div>
+
+<div>
+
+{{ item.price * item.quantity }} บาท
+
+<form action="/remove_group" method="POST" style="display:inline">
+
+<input type="hidden" name="drink" value="{{ item.drink }}">
+<input type="hidden" name="sweetness" value="{{ item.sweetness }}">
+
+<button class="cancel">ยกเลิก</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+<div class="total">
+
+ราคารวม {{ total }} บาท
+
+</div>
+
+<br>
+
+<form action="/confirm" method="POST">
+
+<button>ยืนยันการสั่งซื้อ</button>
+
+</form>
+
+{% else %}
+
+<p>ตะกร้าว่าง</p>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

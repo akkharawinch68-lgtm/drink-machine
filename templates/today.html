@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>ยอดขายวันนี้</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f1ea;
+margin:0;
+}
+
+.container{
+width:90%;
+margin:40px auto;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:12px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+th{
+background:#6f4e37;
+color:white;
+}
+
+.total{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+button{
+padding:10px 20px;
+border:none;
+background:#6f4e37;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>ยอดขายวันนี้</h1>
+
+<table>
+
+<tr>
+<th>เวลา</th>
+<th>โต๊ะ</th>
+<th>เมนู</th>
+<th>จำนวน</th>
+<th>ราคา</th>
+</tr>
+
+{% for row in rows %}
+
+<tr>
+<td>{{ row.created_at }}</td>
+<td>{{ row.table_no }}</td>
+<td>{{ row.drink }}</td>
+<td>{{ row.quantity }}</td>
+<td>{{ row.price * row.quantity }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<div class="total">
+ยอดขายรวมวันนี้ : {{ total }} บาท
+</div>
+
+<br>
+
+<a href="/admin">
+<button>กลับหน้าแอดมิน</button>
+</a>
+
+</div>
+
+</body>
+</html>

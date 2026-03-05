@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Drink Machine - ตัวอย่างโค้ด</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #6f4e37;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        h1 {
+            color: #6f4e37;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #00ffcc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .nav-buttons {
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .nav-buttons a {
+            background: #6f4e37;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 0 15px;
+            display: inline-block;
+        }
+
+        .nav-buttons a:hover {
+            background: #54392b;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="/">หน้าแรก</a>
+    <a href="/reason">ปัญหา</a>
+    <a href="/code">ตัวอย่างโค้ด</a>
+    <a href="/menu">เมนู</a>
+    <a href="/team">ผู้จัดทำ</a>
+</nav>
+
+<div class="container">
+
+    <h1>ตัวอย่างโค้ดในระบบ</h1>
+
+    <div class="box">
+        <h3>การสร้าง Flask App</h3>
+        <pre>
+from flask import Flask
+app = Flask(__name__)
+        </pre>
+        <p>ใช้สำหรับสร้างเว็บแอปด้วย Flask</p>
+    </div>
+
+    <div class="box">
+        <h3>การสร้าง Route</h3>
+        <pre>
+@app.route("/")
+def home():
+    return render_template("index.html")
+        </pre>
+        <p>กำหนดเส้นทาง URL ให้แสดงผลหน้าเว็บ</p>
+    </div>
+
+    <div class="box">
+        <h3>การรันแอป</h3>
+        <pre>
+if __name__ == "__main__":
+    app.run(debug=True)
+        </pre>
+        <p>ใช้สำหรับรันเว็บเซิร์ฟเวอร์ในโหมดพัฒนา</p>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="/reason">◀ ก่อนหน้า</a>
+        <a href="/menu">ถัดไป ▶</a>
+    </div>
+
+</div>
+
+</body>
+</html>

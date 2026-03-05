@@ -1,0 +1,111 @@
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f1ea;
+}
+
+/* navbar */
+
+nav{
+    background:#6f4e37;
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+/* layout */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+}
+
+/* menu grid */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+/* drink card */
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.drink-img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.price{
+    color:#6f4e37;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+/* select */
+
+select{
+    padding:8px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+/* button */
+
+button{
+    margin-top:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:25px;
+    background:#6f4e37;
+    color:white;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+button:hover{
+    background:#54392b;
+}
+
+/* cart */
+
+.cart-item{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.total{
+    font-size:22px;
+    font-weight:bold;
+    color:#6f4e37;
+    margin-top:20px;
+}

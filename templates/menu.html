@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Smart Drink Machine - เมนู</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f5f1ea;
+}
+
+nav{
+background:#6f4e37;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 20px;
+font-weight:bold;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:40px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.drink-img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.price{
+color:#6f4e37;
+font-weight:bold;
+margin:10px 0;
+}
+
+select{
+padding:8px;
+border-radius:6px;
+border:1px solid #ccc;
+margin:5px 0;
+}
+
+button{
+margin-top:10px;
+padding:10px 20px;
+border:none;
+border-radius:25px;
+background:#6f4e37;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#54392b;
+}
+
+.bottom-nav{
+display:flex;
+justify-content:center;
+gap:40px;
+margin:60px 0;
+}
+
+.bottom-nav a{
+padding:12px 28px;
+background:#6f4e37;
+color:white;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="/">หน้าแรก</a>
+<a href="/menu">เมนู</a>
+<a href="/cart">ตะกร้า</a>
+</nav>
+
+<div class="container">
+
+{% set drinks = [
+("Americano",50,"americano.jpg"),
+("Latte",60,"latte.jpg"),
+("Cappuccino",65,"cappuccino.jpg"),
+("Mocha",70,"mocha.jpg"),
+("Thai Tea",45,"thaitea.jpg"),
+("Green Tea",50,"greentea.jpg"),
+("Matcha Latte",75,"matcha.jpg"),
+("Chocolate",60,"chocolate.jpg"),
+("Milk Tea",55,"milktea.jpg"),
+("Lemon Tea",40,"lemontea.jpg")
+] %}
+
+{% for name, price, img in drinks %}
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='images/' + img) }}" class="drink-img">
+
+<h3>{{ name }}</h3>
+
+<div class="price">{{ price }} บาท</div>
+
+<form action="/add_to_cart" method="POST">
+
+<input type="hidden" name="drink" value="{{ name }}">
+<input type="hidden" name="price" value="{{ price }}">
+
+<select name="table" required>
+<option value="">เลือกโต๊ะ</option>
+<option>AJ1</option>
+<option>AJ2</option>
+<option>AJ3</option>
+<option>AJ4</option>
+<option>AJ5</option>
+<option>AJ6</option>
+<option>AJ7</option>
+<option>AJ8</option>
+<option>AJ9</option>
+<option>AJ10</option>
+</select>
+
+<select name="sweetness" required>
+<option value="">เลือกระดับความหวาน</option>
+<option value="0%">0%</option>
+<option value="50%">50%</option>
+<option value="100%">100%</option>
+<option value="120%">120%</option>
+</select>
+
+<br>
+
+<button type="submit">ใส่ตะกร้า</button>
+
+</form>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<div class="bottom-nav">
+<a href="/code">◀ ก่อนหน้า</a>
+<a href="/team">ถัดไป ▶</a>
+</div>
+
+</body>
+</html>

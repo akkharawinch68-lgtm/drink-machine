@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>สั่งซื้อสำเร็จ</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f5f1ea;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+background:white;
+padding:40px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+h1{
+color:#6f4e37;
+}
+
+.order{
+font-size:28px;
+font-weight:bold;
+margin:20px 0;
+}
+
+.total{
+font-size:20px;
+margin-bottom:20px;
+}
+
+a{
+padding:10px 20px;
+background:#6f4e37;
+color:white;
+text-decoration:none;
+border-radius:20px;
+}
+
+a:hover{
+background:#54392b;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>สั่งซื้อสำเร็จ 🎉</h1>
+
+<div class="order">
+เลขออเดอร์ #{{ order_id }}
+</div>
+
+<div class="total">
+ราคารวม {{ total }} บาท
+</div>
+
+<a href="/menu">กลับไปหน้าเมนู</a>
+
+</div>
+
+</body>
+</html>

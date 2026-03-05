@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>เมนูขายดีประจำวัน</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+background:#f5f1ea;
+font-family:Arial;
+text-align:center;
+margin:0;
+}
+
+h1{
+margin-top:40px;
+color:#6f4e37;
+}
+
+.container{
+width:80%;
+max-width:900px;
+margin:auto;
+margin-top:40px;
+}
+
+.chart-box{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:#c0392b;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#922b21;
+}
+
+a{
+text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>📊 เมนูขายดีประจำวัน</h1>
+
+<div class="container">
+
+<div class="chart-box">
+<canvas id="chart"></canvas>
+</div>
+
+<br>
+
+<a href="/reset_sales">
+<button>รีเซ็ตยอดขาย</button>
+</a>
+
+<br><br>
+
+<a href="/admin">
+<button style="background:#6f4e37;">⬅ กลับหน้าแอดมิน</button>
+</a>
+
+</div>
+
+<script>
+
+const ctx = document.getElementById('chart');
+
+new Chart(ctx,{
+
+type:'bar',
+
+data:{
+labels: {{ drinks|tojson }},
+
+datasets:[{
+
+label:'จำนวนแก้วที่ขาย',
+
+data: {{ quantities|tojson }},
+
+backgroundColor:[
+'#e74c3c',
+'#3498db',
+'#2ecc71',
+'#f1c40f',
+'#9b59b6',
+'#e67e22',
+'#1abc9c',
+'#34495e',
+'#ff66cc',
+'#95a5a6'
+],
+
+borderRadius:12
+
+}]
+},
+
+options:{
+
+plugins:{
+legend:{
+display:true
+}
+},
+
+scales:{
+
+y:{
+beginAtZero:true,
+title:{
+display:true,
+text:'จำนวนแก้ว'
+}
+},
+
+x:{
+title:{
+display:true,
+text:'ชื่อเมนู'
+}
+}
+
+}
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
